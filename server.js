@@ -1,57 +1,24 @@
-console.log(`Running Web Server`);
-const express = require("express");
-const app = express();
 const http = require("http");
-const fs =(require("fs"));  
 
-let user;
-fs.readFile("database/user.json", "utf-8", (err, data) => {
-    if(err){
-        console.log("ERROR:", err);
-    } else {
-        user = JSON.parse(data);
-       }
-    });
+const mongodb = require("mongodb");
 
+let db;
+const connectionString = "mongodb://atlas-sql-695430c827762862cc2d6a49-teyoo8.a.query.mongodb.net/REJA?ssl=true&authSource=admin"
 
-// 1 Intro codes
-app.use(express.static("public"));  
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));    
+mongodb.connect(connectionString,{useNewUrlParser:true, useUnifiedTopology:true,
+},(err, client) => {
+    if(err) console.log("ERROR on connection to MongoDB");
+    else{
+        console.log("MongoDB connection succeed");
+        module.exports = client;
+        const app = require("./app");
 
-// 2: Session
-
-// 3:VIews codes
-app.set("views", "views");
-app.set("view engine", "ejs");
-
-// 4 Routing codes
-// app.get("/hello", (req, res) =>{
-//     res.end("<h1>Hello World:</h1>");
-// });
-
-// app.get("/gifts", (req, res) =>{
-//     res.end("<h1>This page is for gifts:</h1>");
-// });
-app.post("/create-item", function (req,res)  {
-    console.log(req.body);
-    res.json({test:"success"});
-});
-
-app.get(`/author`, (req, res) =>{
-    res.render("author", {user:user});
-})
-
-app.get("/", function (req,res){
-    res.render("reja");
-});
-
-
-const server = http.createServer(app);
+        const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function(){
     console.log(`The server is running successfully on PORT: ${PORT}, http://localhost:${PORT} `);  
 });
-
+    }
+});
 
 
