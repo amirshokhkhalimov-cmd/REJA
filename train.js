@@ -1,3 +1,22 @@
+const { text } = require("express");
+
+
+function countNumbers(element) {
+  let count = 0;
+
+  for (let i = 0; i < element.length; i++) {
+    if (element[i] >= "0" && element[i] <= "9") {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countNumbers("xA9kP3mZ7qL2eR0T"));
+
+
+
 // TASK A
 
 // Harf sifatida kiritilgan birinchi parametr, 
@@ -11,17 +30,17 @@
 
 // masalani yechimi:
 
-function countLetter(letter, word) {
-    let count = 0;
+// function countLetter(letter, word) {
+//     let count = 0;
 
-    for (let ele = 0; ele < word.length; ele++) {
-        if (word[ele]=== letter) {
-            count++;
-        }
-    }
-   return count; 
-}
-console.log(countLetter ("s", "discussion"));
+//     for (let ele = 0; ele < word.length; ele++) {
+//         if (word[ele]=== letter) {
+//             count++;
+//         }
+//     }
+//    return count; 
+// }
+// console.log(countLetter ("s", "discussion"));
 
 
 
