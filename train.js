@@ -1,19 +1,103 @@
-const { text } = require("express");
+// TASK (C)
 
 
-function countNumbers(element) {
-  let count = 0;
+// TASK-C
 
-  for (let i = 0; i < element.length; i++) {
-    if (element[i] >= "0" && element[i] <= "9") {
-      count++;
-    }
+// Shop nomli class tuzing, va bu class 3 xill parametr qabul qilsin.
+// Hamda classning quyidagdek 3'ta metodi bo'lsin:
+
+// 1) qoldiq
+// 2) sotish
+// 3) qabul
+
+// Har bir metod ishga tushgan vaqtda log qilinsin
+
+// MASALAN:
+// const shop = new Shop(4, 5, 2)
+
+// shop.qoldiq();
+// natija qaytishi kerak: Hozir 20: 40'da 4'ta non, 5'ta lag'mon va 2'ta cola mavjud
+
+// shop.sotish("non", 3); & shop.qabul("cola", 4); & shop.qoldiq();
+// Natija qaytishi kerak: Hozir 20:50da 1ta non, 5ta lag'mon va 6ta cola mavjud!
+
+// yechim:
+class Shop {
+  constructor(apple, pienapple, strawberry) {
+    this.apple = apple;
+    this.pienapple = pienapple;
+    this.strawberry = strawberry;
   }
 
-  return count;
-}
+  // vaqt
+  getTime() {
+    const now = new Date();
+    const h = now.getHours();
+    const m = now.getMinutes().toString().padStart(2, "0");
+    return `${h}:${m}`;
+  }
 
-console.log(countNumbers("xA9kP3mZ7qL2eR0T"));
+  // qoldiq
+  leftOver() {
+    console.log(
+      `Now ${this.getTime()} da ${this.apple} apple, ${this.pienapple} pineapple va ${this.strawberry} strawberry mavjud`
+    );
+  }
+
+  // sotish
+  sell(fruit, count) {
+    this[fruit] -= count;
+    console.log(
+      `${this.getTime()} da ${count} ta ${fruit} sotildi`
+    );
+  }
+
+  // qabul
+  get(fruit, count) {
+    this[fruit] += count;
+    console.log(
+      `${this.getTime()} da ${count} ta ${fruit} qabul qilindi`
+    );
+  }
+}
+const shop= new Shop(6,2,5);
+shop.leftOver();
+
+shop.sell("apple",3);
+shop.get("strawberry",2);
+shop.leftOver();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//TASK (B)
+
+// const { text } = require("express");
+
+
+// function countNumbers(element) {
+//   let count = 0;
+
+//   for (let i = 0; i < element.length; i++) {
+//     if (element[i] >= "0" && element[i] <= "9") {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+
+// console.log(countNumbers("xA9kP3mZ7qL2eR0T"));
 
 
 
