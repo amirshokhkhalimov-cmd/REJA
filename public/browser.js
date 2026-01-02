@@ -39,8 +39,8 @@ document.addEventListener("click", function (e) {
     if(confirm("Aniq o`chirmoqchimisiz?")) {
         axios
         .post("/delete-item",  {id: e.target.getAttribute("data-id")})
-        .then((response) => {
-            console.log(response.data);
+        .then((_response) => {
+            console.log(_response.data);
             e.target.parentElement.parentElement.remove();
         })
         .catch((err)=>{
