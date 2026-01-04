@@ -39,6 +39,7 @@ app.set("view engine", "ejs");
 //     res.end(`<h1 style="color: green">Siz gift pagesizdasiz</h1>`);
 // });
 
+// create oper
 app.post("/create-item", (req, res) => {
     console.log("user entered / create-item")
     console.log(req.body);
@@ -50,9 +51,32 @@ app.post("/create-item", (req, res) => {
     });
 });
 
+// edit oper
+app.post("/edit-item", (req,res) => {
+ const data = req.body;
+ console.log(data);
+ db.collection("plans").findOneAndUpdate(
+    {_id: mongodb.ObjectId(data.id)}, 
+    {$set: {reja:data.new_input} },
+    function (err,data) {
+        res.json({state:"success"});
+    }  );
+
+});
+
+//delete all
+app.post("/delete-all",(req,res) =>{
+    if(req.body.delete_all) {
+        db.collection("plans").deleteMany(function (){
+            res.json({state:"hammasi ochirilsinmi?"});
+        });
+    }
+});
+
+//delete oper
 app.post("/delete-item", (req, res) => {
  const id = req.body.id;
- db.collection("reja").deleteOne(
+ db.collection("plans").deleteOne(
   { _id: new mongodb.ObjectId(id) },
   function (err, data) {
    if (err) {

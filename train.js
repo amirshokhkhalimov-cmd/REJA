@@ -1,3 +1,34 @@
+// TASK D
+
+// Ikkita parametra ega function tuzing, va functioning
+// berilgan birinchi va ikkinchi parametr qiymatlari o'zaro to'liq
+// mos kelsa true qiymat qaytarsin
+
+// Masalan: checkContent("mitgroup", "gmtiprou");
+// Yuqoridagi misolda birinchi va ikkinchi parametr qiymatli bir xil
+// ya'ni bir xil harflar qatnashganligi uchun true qiymat qaytaradi.
+
+// yechim:
+function checkContent(a,b){
+  if(a.length !== b.length) return false;
+
+  else if(
+    a.split(``).sort().join(``)===
+    b.split(``).sort().join(``)
+  ) {
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+console.log(checkContent("mitgroup", "gmtiprou"));
+
+
+
+
+
+
 // TASK (C)
 
 
@@ -22,50 +53,50 @@
 // Natija qaytishi kerak: Hozir 20:50da 1ta non, 5ta lag'mon va 6ta cola mavjud!
 
 // yechim:
-class Shop {
-  constructor(apple, pienapple, strawberry) {
-    this.apple = apple;
-    this.pienapple = pienapple;
-    this.strawberry = strawberry;
-  }
+// class Shop {
+//   constructor(apple, pienapple, strawberry) {
+//     this.apple = apple;
+//     this.pienapple = pienapple;
+//     this.strawberry = strawberry;
+//   }
 
   // vaqt
-  getTime() {
-    const now = new Date();
-    const h = now.getHours();
-    const m = now.getMinutes().toString().padStart(2, "0");
-    return `${h}:${m}`;
-  }
+//   getTime() {
+//     const now = new Date();
+//     const h = now.getHours();
+//     const m = now.getMinutes().toString().padStart(2, "0");
+//     return `${h}:${m}`;
+//   }
 
-  // qoldiq
-  leftOver() {
-    console.log(
-      `Now ${this.getTime()} da ${this.apple} apple, ${this.pienapple} pineapple va ${this.strawberry} strawberry mavjud`
-    );
-  }
+//   // qoldiq
+//   leftOver() {
+//     console.log(
+//       `Now ${this.getTime()} da ${this.apple} apple, ${this.pienapple} pineapple va ${this.strawberry} strawberry mavjud`
+//     );
+//   }
 
-  // sotish
-  sell(fruit, count) {
-    this[fruit] -= count;
-    console.log(
-      `${this.getTime()} da ${count} ta ${fruit} sotildi`
-    );
-  }
+//   // sotish
+//   sell(fruit, count) {
+//     this[fruit] -= count;
+//     console.log(
+//       `${this.getTime()} da ${count} ta ${fruit} sotildi`
+//     );
+//   }
 
-  // qabul
-  get(fruit, count) {
-    this[fruit] += count;
-    console.log(
-      `${this.getTime()} da ${count} ta ${fruit} qabul qilindi`
-    );
-  }
-}
-const shop= new Shop(6,2,5);
-shop.leftOver();
+//   // qabul
+//   get(fruit, count) {
+//     this[fruit] += count;
+//     console.log(
+//       `${this.getTime()} da ${count} ta ${fruit} qabul qilindi`
+//     );
+//   }
+// }
+// const shop= new Shop(6,2,5);
+// shop.leftOver();
 
-shop.sell("apple",3);
-shop.get("strawberry",2);
-shop.leftOver();
+// shop.sell("apple",3);
+// shop.get("strawberry",2);
+// shop.leftOver();
 
 
 
