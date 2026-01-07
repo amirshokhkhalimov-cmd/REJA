@@ -1,3 +1,31 @@
+// E-TASK: 
+
+// Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+// MASALAN: getReverse("hello") return qilsin "olleh"
+
+// yechim:
+function getReverse(string){
+   return string.split("").reverse().join("");
+    }
+  
+
+console.log(getReverse("hello"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // TASK D
 
 // Ikkita parametra ega function tuzing, va functioning
@@ -9,20 +37,20 @@
 // ya'ni bir xil harflar qatnashganligi uchun true qiymat qaytaradi.
 
 // yechim:
-function checkContent(a,b){
-  if(a.length !== b.length) return false;
+// function checkContent(a,b){
+//   if(a.length !== b.length) return false;
 
-  else if(
-    a.split(``).sort().join(``)===
-    b.split(``).sort().join(``)
-  ) {
-    return true;
-  }
-  else{
-    return false;
-  }
-}
-console.log(checkContent("mitgroup", "gmtiprou"));
+//   else if(
+//     a.split(``).sort().join(``)===
+//     b.split(``).sort().join(``)
+//   ) {
+//     return true;
+//   }
+//   else{
+//     return false;
+//   }
+// }
+// console.log(checkContent("mitgroup", "gmtiprou"));
 
 
 

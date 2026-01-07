@@ -28,7 +28,7 @@ app.use(express.urlencoded({extended: true}));
 // 3 View code
 app.set("views", "views");
 app.set("view engine", "ejs");
-
+// 
 // 4 Routing code
 
 // app.get("/greeting", function(req, res){ //http://localhost:3000/greeting
